@@ -54,19 +54,6 @@ CREATE TABLE passenger_review
     CONSTRAINT pk_passengerreview PRIMARY KEY (id)
 );
 
-CREATE TABLE revchanges
-(
-    rev        BIGINT NOT NULL,
-    entityname VARCHAR(255) NULL
-);
-
-CREATE TABLE revinfo
-(
-    rev      BIGINT NOT NULL,
-    revtstmp BIGINT NULL,
-    CONSTRAINT pk_revinfo PRIMARY KEY (rev)
-);
-
 ALTER TABLE booking_review
     ADD CONSTRAINT uc_booking_review_booking UNIQUE (booking_id);
 
@@ -91,5 +78,4 @@ ALTER TABLE booking_review
 ALTER TABLE passenger_review
     ADD CONSTRAINT FK_PASSENGERREVIEW_ON_ID FOREIGN KEY (id) REFERENCES booking_review (id);
 
-ALTER TABLE revchanges
-    ADD CONSTRAINT fk_revchanges_on_default_tracking_modified_entities_changelog FOREIGN KEY (rev) REFERENCES revinfo (rev);
+;

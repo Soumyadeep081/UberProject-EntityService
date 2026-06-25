@@ -40,9 +40,11 @@ public class Driver extends BaseModel{
 
     private String activeCity;
 
+    private boolean isAvailable;
+
     @DecimalMin(value = "0.00", message = "Rating must be greater than or equal to 0.00")
     @DecimalMax(value = "5.00", message = "Rating must be less than or equal to 5.00")
-    private double rating;
+    private Double rating;
 
     @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL)
     private Car car;
