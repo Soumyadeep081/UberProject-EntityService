@@ -2,6 +2,7 @@ package org.example.uberprojectentityservice.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 
 import java.util.Date;
 
@@ -33,10 +34,10 @@ public class Booking extends BaseModel{
     @ManyToOne
     private Passenger passenger;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private ExactLocation startLocation;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private ExactLocation endLocation;
 
 }
